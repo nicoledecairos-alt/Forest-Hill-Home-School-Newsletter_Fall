@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Hill Home & School Newsletter - Fall 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #2d3748;
+        }
+        
+        .newsletter-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #7B3F98 0%, #9B4DAE 70%, #B85450 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .logo-container {
+            width: 280px;
+            height: 160px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.3));
+        }
+        
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+            letter-spacing: -1px;
+        }
+        
+        .edition-badge {
+            background: linear-gradient(135deg, #B85450 0%, #D63384 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            display: inline-block;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(184, 84, 80, 0.4);
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .content-section {
+            margin: 40px;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0.3) 100%);
+        }
+        
+        .welcome-section {
+            background: #28A745;
+            color: white;
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.3);
+        }
+        
+        .initiatives-section {
+            background: #7B3F98;
+            color: white;
+            box-shadow: 0 15px 35px rgba(123, 63, 152, 0.3);
+        }
+        
+        .volunteer-section {
+            background: #B85450;
+            color: white;
+            box-shadow: 0 15px 35px rgba(184, 84, 80, 0.3);
+        }
+        
+        .membership-section {
+            background: #6C757D;
+            color: white;
+            box-shadow: 0 15px 35px rgba(108, 117, 125, 0.3);
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            letter-spacing: -0.5px;
+        }
+        
+        .section-icon {
+            font-size: 1em;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .section-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+        
+        .section-content p {
+            margin-bottom: 20px;
+        }
+        
+        .section-content strong {
+            font-weight: 600;
+        }
+        
+        ul {
+            padding-left: 0;
+            margin: 25px 0;
+            display: grid;
+            gap: 12px;
+        }
+        
+        li {
+            list-style-type: none;
+            position: relative;
+            padding: 15px 20px 15px 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        li:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateX(5px);
+        }
+        
+        li:before {
+            content: "✨";
+            position: absolute;
+            left: 18px;
+            top: 15px;
+            font-size: 1.2em;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+        
+        .volunteer-opportunities {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .volunteer-item {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 12px;
+            border-left: 4px solid rgba(255,255,255,0.4);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .volunteer-item:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateX(8px);
+            border-left-color: rgba(255,255,255,0.6);
+        }
+        
+        .volunteer-item strong {
+            display: block;
+            font-size: 1.25em;
+            margin-bottom: 8px;
+            color: #FFE066;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .email-highlight {
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            padding: 25px;
+            border-radius: 16px;
+            margin: 25px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.2em;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        
+        .membership-types {
+            display: grid;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .membership-type {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 16px;
+            border-left: 6px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(15px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .membership-type:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .membership-type strong {
+            color: #FFE066;
+            font-size: 1.3em;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #2C3E50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            font-size: 1.1em;
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #7B3F98, #28A745, #B85450);
+            border-radius: 2px;
+        }
+        
+        .footer p {
+            margin-top: 10px;
+        }
+        
+        a {
+            color: #FFE066;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid rgba(255, 224, 102, 0.3);
+        }
+        
+        a:hover {
+            background: rgba(255, 224, 102, 0.2);
+            border-bottom-color: #FFE066;
+            transform: translateY(-1px);
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+            
+            .newsletter-container {
+                margin: 0;
+                border-radius: 16px;
+            }
+            
+            .header {
+                padding: 40px 25px;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .content-section {
+                margin: 20px;
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.8em;
+            }
+            
+            .footer {
+                padding: 30px 25px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            li {
+                padding-left: 20px;
+            }
+            
+            li:before {
+                left: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="newsletter-container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="https://scontent-yyz1-1.xx.fbcdn.net/v/t39.30808-6/277809815_10159730777859787_9039929911222542783_n.png?stp=dst-jpg_s720x720_tt6&_nc_cat=109&ccb=1-7&_nc_sid=2285d6&_nc_ohc=NAIpJFOK34MQ7kNvwHe4c7V&_nc_oc=Adl3Gg41yt7hm4vDVdoapitFbKjdhZYS7JRgPGb9el6vUXAt6-r3P14ETr17Xqp7smw&_nc_zt=23&_nc_ht=scontent-yyz1-1.xx&_nc_gid=ppCWUd44tul7ZRr8_1Mg0g&oh=00_Afb-NMPBzQL1Nj857lqodAog_hWqWWSaoxCmNI-zb4fsDQ&oe=68D31ABD" />
+            </div>
+            <h1>Home & School Newsletter</h1>
+            <div class="edition-badge">Fall 2025 Edition</div>
+        </div>
+        
+        <div class="content-section welcome-section">
+            <div class="section-title">
+                <span class="section-icon">🏠</span>
+                Welcome to the First Home & School Newsletter of the Year!
+            </div>
+            <div class="section-content">
+                <p>Stay tuned for updates on volunteer opportunities, upcoming events, fundraising goals, and special shout-outs.</p>
+                <p>Our Forest Hill community is incredibly fortunate to have such a vibrant and active Home & School. None of the exciting and meaningful opportunities we provide for our kids would be possible without your support.</p>
+                <p><strong>We encourage you to get involved in any way you can! That might mean:</strong></p>
+                <ul>
+                    <li>Sending a few emails or making phone calls</li>
+                    <li>Connecting us with a local partner who wants to help</li>
+                    <li>Volunteering your time (any time you have!) at school events</li>
+                    <li>Baking or cooking for a bake sale or teacher appreciation</li>
+                    <li>Lending a fire pit, tent, or other items we may need</li>
+                </ul>
+                <p>Every contribution—big or small—helps us make a difference. Together, we can continue to build a supportive community and help our kids grow into kind, helpful, and caring individuals.</p>
+            </div>
+        </div>
+        
+        <div class="content-section initiatives-section">
+            <div class="section-title">
+                <span class="section-icon">📅</span>
+                Upcoming Initiatives
+            </div>
+            <div class="section-content">
+                <ul>
+                    <li><strong>New Turf & Playground Opening</strong> – FHSR</li>
+                    
+                    <li><strong>Staff Appreciation</strong> (all year) – Both Schools</li>
+                    <li><strong>Book Fairs</strong> – Both Schools; Nov 20 at Junior; TBD at Senior</li>
+                    
+                    <li><strong>Outdoor Classroom repairs</strong> (all year) – FHJR</li>
+                    <li><strong>Food Fundraiser</strong> (Pizza, Subway, Pasta, TCBY) – Both Schools</li>
+                    <li><strong>Theme Days</strong> – Both Schools</li>
+                    <li><strong>School Clothing</strong> (all Year) – Both Schools</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="content-section volunteer-section">
+            <div class="section-title">
+                <span class="section-icon">🙋‍♀️</span>
+                Volunteer Opportunities – We need YOU!
+            </div>
+            <div class="section-content">
+                <div class="email-highlight">
+                    <strong>Interested in volunteering for any of these events?<br>
+                    Email our Volunteer Coordinator, Iva: iva.senicnjak@gmail.com</strong>
+                </div>
+                
+                <div class="volunteer-opportunities">
+                    <div class="volunteer-item">
+                        <strong>New Turf & Playground opening</strong>
+                        • Someone to purchase treats (ie..popsicles)<br>
+                        • On site to distribute treats & clean up (2-3 people, 1-2 hours)
+                    </div>
+                    
+                  
+                
+                    
+                    <div class="volunteer-item">
+                        <strong>Pumpkin Hunt for Kindergarteners!</strong>
+                        • Pick up from supplier and distribute<br>
+                        • 1-2 hours, 2-3 people
+                    </div>
+                    
+                    <div class="volunteer-item">
+                        <strong>Staff Appreciation events (Sporadic)</strong>
+                        • On site 2-3 hours<br>
+                        • 4-5 people per event for set up and clean up
+                    </div>
+                    
+                    <div class="volunteer-item">
+                        <strong>Book Fair – coming up at Junior campus November 20th</strong>
+                        • Shifts can be as little as 1 hour<br>
+                        • Will need 3-4 people at all times
+                    </div>
+                    
+                    
+                    
+                    <div class="volunteer-item">
+                        <strong>Outdoor Classroom</strong>
+                        • As needed, stay tuned for sign up details as repairs are needed!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section membership-section">
+            <div class="section-title">
+                <span class="section-icon">👥</span>
+                How to Join Home & School!
+            </div>
+            <div class="section-content">
+                <p><strong>Here's how you can get involved:</strong></p>
+                
+                <div class="membership-types">
+                    <div class="membership-type">
+                        <strong>Volunteer Member</strong>
+                        Help out at events and activities (you need to get added to the new list every year)
+                    </div>
+                    
+                    <div class="membership-type">
+                        <strong>Voting Member</strong>
+                        Join meetings and vote on decisions, 20$ fee (for your payment to the QFHSA)
+                    </div>
+                    
+                    <div class="membership-type">
+                        <strong>Non-Voting Member</strong>
+                        Stay informed and support however you can, attend meetings, receive emails with agendas and other reports, no fee
+                    </div>
+                </div>
+                
+                <p>All you need to do is send an email to our Membership Coordinator, Lisa Davignon: <strong>fhmembership@gmail.com</strong></p>
+                
+                <p><strong>All volunteers need background checks!</strong> Here is the link for the form, which you need to drop off in person at the campus of your choice.</p>
+                <p>• <a href="https://foresthilljr.lbpsb.qc.ca/wp-content/uploads/sites/7/2024/11/JUDICIAL-RECORD-FORM.pdf" target="_blank">FHJR Judicial Form Link</a><br>
+                • <a href="https://foresthillsr.lbpsb.qc.ca/wp-content/uploads/sites/5/2022/11/Declaration-Judicial-Record.pdf" target="_blank">FHSR Judicial Form Link</a></p>
+                
+                <div class="email-highlight">
+                    Questions? Reach out anytime at <strong>fhmembershipemail@gmail.com</strong>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Forest Hill Home & School</strong><br>
+            Building community, supporting our children's growth</p>
+        </div>
+    </div>
+</body>
+</html>
